@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+	  div .error-msg {
+            display: none;
+            font-size: 10px;
+            color: red;
+            position: relative;
+            left: 150px;
+        }
+        
+        .drinkData {
+            display: none;
+            margin: 15px 150px;
+        }
+        
+        #dynamicCheckText {
+            display: none;
+        }
+        
+        select {
+            width: 150px;
+        }
+        
+        .btn {
+            margin-top: 30px;
+            text-align: center;
+        }
+  </style>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form name="form" id="form" action="result.html" method="GET"  onreset="resetHandle();">
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" onkeyup="validateInput(this)" onblur="validateInput(this)" required />	
+			<div class="error-msg"><label>Invalid Input for First Name</label></div>
+			<br><br>
+			
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" onkeyup="validateInput(this)" onblur="validateInput(this)" required />
+			<div class="error-msg"><label>Invalid Input for Last Name</label></div>
+			<br><br>
+			
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" onkeyup="validateInput(this)" onblur="validateInput(this)" required/>
+			<div class="error-msg"><label>Invalid Input for Email Id</label></div>
+			<br><br>
+			
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" onkeyup="validateInput(this)" onblur="validateInput(this)" required/>
+			<div class="error-msg"><label>Invalid Input for Phone Number</label></div>
+			<br><br>
+
+			<label for="streetAddress1">Street Address 1*:</label>
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="Street Address 1" onkeyup="validateInput(this)" onblur="validateInput(this)" required />
+			<div class="error-msg"><label>Invalid Input for Street Address1</label></div>
+			<br><br>
+
+			<label for="streetAddress2">Street Address 2:</label>
+			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="Street Address 2" />
+			<br><br>
+
+			<label for="city">City*:</label>
+			<input type="text" name="city" id="city" placeholder="city" onkeyup="validateInput(this)" onblur="validateInput(this)" required />
+			<div class="error-msg"><label>Invalid Input for City</label></div>
+			<br><br>
+
+			<label for="state">State*:</label>
+			<input type="text" name="state" id="state" placeholder="state" onkeyup="validateInput(this)" onblur="validateInput(this)" required/>
+			<div class="error-msg"><label>Invalid Input for State</label></div>
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" onkeyup="validateInput(this)" onblur="validateInput(this)" required />
+			<div class="error-msg"><label>Invalid Input for Zip Code</label></div>
+			<br><br>
+             
+            <label for="source">How did you hear*:</label>
+			
+            <input type='checkbox' name="source" value="google" /> Google
+			<input type='checkbox' name="source" value="facebook"   /> Facebook
+            <input type='checkbox' name="source	" value="University" /> University 
+			
+			<br><br>  
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25" onkeyup="validateInput(this)" onblur="validateInput(this)" required></textarea>
+			<div class="error-msg"><label>Invalid Input for Comments</label></div>
+			<br><br>
+
+			<label for="drink">Select Drink*:</label>
+                <select id="drink" name="drink" onchange="drinkChange(this.value)" form="form" onblur="validateInput(this)" required>
+					<option value="" disabled selected name=""></option>
+					<option value="drink" name="drink">Cold Drink</option>
+					<option value="liquor" name="liquor">Liquor</option>
+					<option value="cocktail" name="cocktail">Cocktail</option>
+					<option value="tea" name="tea">Tea</option>
+					<option value="coffee" name="coffee">Coffee</option>
+				</select>
+            <div class="error-msg"><label>Please Select a Drink</label></div>
+
+            <div class="drinkData">
+                    <label for="checkDrink"></label>
+                    <input type="checkbox" id="drinkCheckBox" name="checkDrink" onchange="onCheck(this)">
+                    <span id="selectText">Test is here</span>
+                    <label for=""></label>
+                    <input type="text" id="dynamicCheckText" name="drinkValue" placeholder="Add Content">
+            </div>
+
+			<div class="btn">
+				<input type="submit" onclick="submitData()">
+				<input type="Reset">
+			</div>
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <script src="./script-form.js"></script>
+
+ </body>
+</html>
