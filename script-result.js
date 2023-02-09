@@ -1,10 +1,11 @@
 let obj;
 
-// on load store url params
+// on load store url params into an object
 window.onload = function() {
     let params = new URL(document.location).searchParams;
     obj = {
-        
+       
+        // Store values of URL parameters into properties of the object
         "title": params.get('title'),
         "firstName": params.get('firstName'),
         "lastName": params.get('lastName'),
