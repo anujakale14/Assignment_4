@@ -113,29 +113,42 @@ let validateInput = function(el) {
 }
 
 let submitData = function() {
+     // Call the validateCheckbox function
     validateCheckbox();
+     // Call the validateInput function
     validateInput();
     
+    // Get the form element
     let form = document.getElementsByName('form')[0];
+    // Submit the form
     form.submit();
+    // Reset the form
     form.reset();
+    // Return false to prevent the default form behavior
     return false;
     
 };
 
 let validateCheckbox = function() {
   console.log("validate checkbox")
+  // Get the form element with an ID of 'form'
   const form = document.querySelector('#form');
   
+  // Get all the checkbox inputs in the form
   const checkboxes = form.querySelectorAll('input[type=checkbox]');
+  // Get the number of checkboxes
   const checkboxLength = checkboxes.length;
+  // Get the first checkbox or set it to null if there are no checkboxes
   const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
 
   function checkValidity() {
-      
+
+     // Check if at least one checkbox is checked
     const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
     console.log("errorMessage",errorMessage)
+    // Set the custom validity of the first checkbox to the error message
     firstCheckbox.setCustomValidity(errorMessage);
+   // If there is an error message, show an alert
     if(errorMessage.length>0){
       alert(errorMessage);
     }
@@ -144,24 +157,26 @@ let validateCheckbox = function() {
 
 
   function init() {
+    // If there is a first checkbox, add an event listener for change events
       if (firstCheckbox) {
           for (let i = 0; i < checkboxLength; i++) {
               checkboxes[i].addEventListener('change', checkValidity);
           }
-
+   // Call the checkValidity function
           checkValidity();
       }
   }
 
 
   function isChecked() {
+    // Loop through the checkboxes and return true if one of them is checked
     for (let i = 0; i < checkboxLength; i++) {
         if (checkboxes[i].checked) return true;
     }
-
+   // Return false if none of the checkboxes are checked
     return false;
 }
-
+ // Call the init function
   init();
 
         
