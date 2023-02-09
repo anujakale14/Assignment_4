@@ -37,7 +37,10 @@ let getSocialValue = (params) => {
 
 // to populate form value in table
 let displayTable = function() {
+
+    // Get the tbody element of the table
     let tbody = document.querySelector("#table tbody");
+    // Populate the table with form data
     tbody.children[0].children[1].innerHTML = obj.title ? obj.title.toUpperCase() : "-";
     tbody.children[1].children[1].innerHTML = obj.firstName ? obj.firstName : "-";
     tbody.children[2].children[1].innerHTML = obj.lastName ? obj.lastName : "-";
