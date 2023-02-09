@@ -1,19 +1,19 @@
 //  function on drink change to show checkbox with dynamic data
 let drinkChange = function(val) {
 
-    let lbltxt = "";
+    let lbltxt = "";    //variable to store the display text for the selected drink
     switch (val) {
         case 'tea':
             lbltxt = "Large Black Tea";
             break;
         case 'coffee':
-            lbltxt = "Large Coffee";
+            lbltxt = "Large Espresso";
             break;
         case 'drink':
             lbltxt = "Medium Drink";
             break;
         case 'cocktail':
-            lbltxt = "Medium Cocktail";
+            lbltxt = "Medium Margarita";
             break;
         case 'liquor':
             lbltxt = "Small Liquor";
@@ -23,6 +23,7 @@ let drinkChange = function(val) {
             break;
     }
 
+    // update the display text for the selected drink
     document.querySelector("#selectText").innerHTML = lbltxt;
     document.querySelector(".drinkData").style.display = "block";
     resetTextBox();
@@ -31,23 +32,23 @@ let drinkChange = function(val) {
 
 }
 
-// to reset last text area
+// function to reset the last text area
 let resetTextBox = function() {
     document.querySelector("#dynamicCheckText").value = "";
 };
 
-// to reset form and hide last text area
+// function to reset the form and hide the last text area
 let resetHandle = function() {
     console.log("reset called");
     document.querySelector(".drinkData").style.display = "none";
 }
 
-// reset drink checkbox
+// function to reset the drink checkbox
 let resetCheckBox = function() {
     document.querySelector("#drinkCheckBox").checked = false;
 };
 
-// on last  drink check box change
+// function to handle the change event for the drink check box
 let onCheck = function(el) {
     resetTextBox();
     let field = document.querySelector("#dynamicCheckText");
@@ -60,7 +61,7 @@ let onCheck = function(el) {
     }
 }
 
-// to validate all the form inputs
+// function to validate all the form inputs
 let validateInput = function(el) {
 
     var regexName = /^[a-zA-Z]+$/;
@@ -74,7 +75,7 @@ let validateInput = function(el) {
     
     
     
-    
+      // validate the input based on its name attribute
     switch (elementName) {
         case 'firstName':
             if (!el.value.trim().match(regexName)) showError = true;
